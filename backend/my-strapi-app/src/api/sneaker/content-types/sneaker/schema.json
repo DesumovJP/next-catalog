@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sneakers",
+  "info": {
+    "singularName": "sneaker",
+    "pluralName": "sneakers",
+    "displayName": "sneaker"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "default": "Кросівки тест"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "price": {
+      "type": "biginteger",
+      "required": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "default": "Кросівки - це спортивне взуття з м'якою підошвою, зазвичай на шнурівці, виготовлене з тканини або шкіри. Вони бувають різних типів, включаючи низькі, середні та високі, що відрізняються за висотою верхньої частини, що закриває щиколотку. Кросівки популярні як спортивне взуття та як модний аксесуар для повсякденного носіння. ",
+      "minLength": 10,
+      "maxLength": 500,
+      "required": true
+    },
+    "sneaker": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::size.size",
+      "mappedBy": "sizes"
+    },
+    "brand": {
+      "type": "enumeration",
+      "enum": [
+        "Nike",
+        "Adidas",
+        "Asics",
+        "Puma",
+        "New Balance",
+        "Reebok",
+        "Saucony"
+      ]
+    }
+  }
+}
