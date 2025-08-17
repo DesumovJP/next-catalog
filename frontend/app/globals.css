@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  /* Base (light) scheme — restored background to original */
+  --background: #fdf4db;   /* page bg (restored) */
+  --surface: #ffffff;      /* cards, app bars (light) */
+  --foreground: #000000;   /* primary text now black */
+  --muted: #6b7280;        /* secondary text */
+  --brand: #111111;        /* primary brand color (black) */
+  --brand-contrast: #ffffff; /* text on brand */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Restore pale yellow background for dark scheme as before */
+    --background: #fdf4db;   /* pale yellow */
+    --surface: #ffffff;
+    --foreground: #000000;   /* readable text on pale yellow */
+    --muted: #4b5563;
+    --brand: #111111;
+    --brand-contrast: #ffffff;
+  }
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  
+}
+
+main {
+  min-height: 100vh;
+}
+
+/* Make common elements inherit readable foreground by default */
+a { color: inherit; }
+p, h1, h2, h3, h4, h5, h6 { color: inherit; }
+
+
+.MuiTypography-root { color: inherit; }
+
+
+.MuiAppBar-colorPrimary {
+  background-color: var(--brand) !important;
+  color: var(--brand-contrast) !important;
+}
+
+.MuiButton-containedPrimary {
+  background-color: var(--brand) !important;
+  color: var(--brand-contrast) !important;
+}
+.MuiButton-containedPrimary:hover {
+  background-color: #000000 !important;
+}
+.MuiButton-containedPrimary:active {
+  background-color: #0a0a0a !important;
+}
+
+.MuiButton-outlinedPrimary {
+  border-color: var(--brand) !important;
+  color: var(--brand) !important;
+}
+.MuiButton-outlinedPrimary:hover {
+  border-color: #000000 !important;
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: #000000 !important;
+}
+
+.MuiButton-textPrimary {
+  color: #ffffff !important;
+}
+.MuiButton-textPrimary:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: #000000 !important;
+}
+
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: var(--brand) !important;
+}
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--brand) !important;
+  border-width: 2px;
+}
+.MuiInputLabel-root.Mui-focused {
+  color: var(--brand) !important;
+}
+
+
+.MuiCheckbox-colorPrimary.Mui-checked,
+.MuiRadio-colorPrimary.Mui-checked,
+.MuiSwitch-colorPrimary.Mui-checked {
+  color: var(--brand) !important;
+}
+.MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track {
+  background-color: var(--brand) !important;
+}
+
+
+.MuiMenuItem-root:hover {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+.MuiMenuItem-root.Mui-selected,
+.MuiMenuItem-root.Mui-selected:hover {
+  background-color: rgba(0, 0, 0, 0.12) !important;
+}
